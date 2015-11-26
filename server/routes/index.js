@@ -19,24 +19,18 @@ const ARD_VELOCITY_Z_MAX = 1000;
 /// global variable
 var g_arDrone = require('ar-drone');
 var g_arDroneConstants = require('ar-drone/lib/constants');
-
-function navdata_option_mask(c) {
-  return 1 << c;
-}
-
-var navdata_options = (
-    navdata_option_mask(g_arDroneConstants.options.DEMO)
-  | navdata_option_mask(g_arDroneConstants.options.ALTITUDE)
-  | navdata_option_mask(g_arDroneConstants.options.VISION_DETECT)
-  | navdata_option_mask(g_arDroneConstants.options.MAGNETO)
-  | navdata_option_mask(g_arDroneConstants.options.WIFI)
+function navigationDataOptionMask(c) { return 1 << c; }
+var navigationDataOptions = (
+    navigationDataOptionMask(g_arDroneConstants.options.DEMO)
+  | navigationDataOptionMask(g_arDroneConstants.options.ALTITUDE)
+  | navigationDataOptionMask(g_arDroneConstants.options.VISION_DETECT)
+  | navigationDataOptionMask(g_arDroneConstants.options.MAGNETO)
+  | navigationDataOptionMask(g_arDroneConstants.options.WIFI)
 );
-
-var g_client = g_arDrone.createClient(navdata_options);
-
+var g_client = g_arDrone.createClient(navigationDataOptions);
 // Connect and configure the drone
 g_client.config('general:navdata_demo', true);
-g_client.config('general:navdata_options', navdata_options);
+g_client.config('general:navdata_options', navigationDataOptions);
 //g_client.config('video:video_channel', 0);
 g_client.config('video:video_channel', 3);
 g_client.config('detect:detect_type', 12);
