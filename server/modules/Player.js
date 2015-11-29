@@ -17,4 +17,3 @@ Player.prototype.setCurrentLocation = function setCurrentLocation(location) {
 
 
 module.exports = Player;
-

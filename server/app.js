@@ -1,37 +1,39 @@
 /// constants
-const MAX_PLAYERS = 0
+const MAX_PLAYERS = 2;
+
 
 /// modules
-var player = require("./modules/player.js"); // game player
+var Game = require("./modules/Game.js");
 var server = require('http').createServer();
 var io = require('socket.io')(server);
 
+
 /// variables
 var port = process.env.PORT || 3000;
-var players = [];
+var game = new Game(MAX_PLAYERS);
 
-/// web socket
+
+/// event
 io.on('connection', function(socket) {
 
-    console.log('connected: ' + socket.id);
-    if (players.count < MAX_PLAYERS) {
-        players.push(new player(socket.id));
-    }
-    else {
-        socket.disconnect();
-    }
-
+    /// socket.io
     socket.on('disconnect', function() {
         console.log('disconnected: ' + socket.id);
         console.log(socket.id);
     });
 
-    socket.on('ready', function(data) {
-        console.log(data);
+    socket.on('event', function(data) {
     });
 
-    socket.on('fly', function(data) {
-        console.log(data);
+
+    /// game
+    game.on('more than max', function(message) {
+        socket.disconnect();
     });
+
+    game.addPlayer(socket.id);
+
 });
+
 server.listen(port);
+
