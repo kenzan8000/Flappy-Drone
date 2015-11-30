@@ -1,19 +1,28 @@
-/// Player
-function Player(sessionID) {
-    this.sessionID = sessionID;
-    this.currentLocation = {x: 0, y: 0, z:0};
-}
+(function(global) {
+    'use strict;'
+
+    /// Player
+    function Player(sessionID) {
+        this.sessionID = sessionID;
+        this.currentLocation = {x: 0, y: 0, z:0};
+    }
 
 
-/// public api
+    /// public api
 
-/**
- * set currentLocation
- * @param location {x: number, y: number, z: number}
- **/
-Player.prototype.setCurrentLocation = function setCurrentLocation(location) {
-    this.currentLocation = location;
-};
+    /**
+     * set currentLocation
+     * @param location {x: number, y: number, z: number}
+     **/
+    Player.prototype.setCurrentLocation = function setCurrentLocation(location) {
+        this.currentLocation = location;
+    };
 
 
-module.exports = Player;
+    /// Exports
+    if ('process' in global) {
+        module.exports = Player;
+    }
+    global.Player = Player;
+
+})((this || 0).self || global);

@@ -1,18 +1,18 @@
 (function(global) {
-    "use strict;"
+    'use strict;'
 
     /// constants
     var EVENTS = {
         START : 'start',
-        FINISH : 'finish',
-        MORE_THAN_MAX : 'more than max'
+        END : 'end',
+        MORE_THAN_MAX_PLAYERS : 'more than max players'
     };
 
 
     /// modules
     var util = require('util');
     var events = require('events');
-    var Player = require("./Player.js");
+    var Player = require('./Player.js');
 
 
     /// Game
@@ -35,16 +35,18 @@
         if (this.players.length < this.MAX_PLAYERS) {
             var player = new Player(sessionID);
             this.players.push(player);
+            if (this.players.length == this.MAX_PLAYERS) {
+                this.emit(EVENTS.START, 'Game is starting.');
+            }
         }
         else {
-            this.emit(EVENTS.MORE_THAN_MAX, 'This game has max players.');
+            this.emit(EVENTS.MORE_THAN_MAX_PLAYERS, 'This game already has max players.');
         }
     };
 
 
     /// Exports
-
-    if ("process" in global) {
+    if ('process' in global) {
         module.exports = Game;
     }
     global.Game = Game;
