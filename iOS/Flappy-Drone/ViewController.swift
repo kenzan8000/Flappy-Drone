@@ -3,6 +3,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var socket: SIOSocket?
 
     @IBOutlet weak var countDownLabel: FDCountDownLabel!
     @IBOutlet weak var startButton: QBFlatButton!
@@ -13,6 +14,29 @@ class ViewController: UIViewController {
 
         //self.countDownLabel.completionHandler = { [unowned self] in
         //}
+
+        SIOSocket.socketWithHost(
+            "http://localhost:3000",
+            response: { [unowned self] (socket: SIOSocket!) -> Void in
+                self.socket = socket
+
+                self.socket!.onConnect = { () -> Void in
+                    print("connected")
+                }
+
+                self.socket!.onDisconnect = { () -> Void in
+                    print("disconnected")
+                }
+
+                self.socket!.on("start", callback: { (args: [AnyObject]!) -> Void in
+                    print(args)
+                })
+
+                self.socket!.on("end", callback: { (args: [AnyObject]!) -> Void in
+                    print(args)
+                })
+            }
+        )
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,8 +45,10 @@ class ViewController: UIViewController {
 
 
     @IBAction func touchedUpInside(button button: UIButton) {
-        self.countDownLabel.countDown(count: 3)
+        //endself.countDownLabel.countDown(count: 3)
+        if self.socket != nil {
+            self.socket!.emit("event", args: [["hoge"]])
+        }
     }
 
 }
-

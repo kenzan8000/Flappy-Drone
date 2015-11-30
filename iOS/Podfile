@@ -4,6 +4,7 @@ xcodeproj 'Flappy-Drone'
 
 # network
 pod 'ISHTTPOperation'
+pod 'SIOSocket'
 
 # UI
 pod 'QBFlatButton'

@@ -1,13 +1,16 @@
 PODS:
   - ISHTTPOperation (1.2.0)
   - QBFlatButton (1.1)
+  - SIOSocket (0.2.0)
 
 DEPENDENCIES:
   - ISHTTPOperation
   - QBFlatButton
+  - SIOSocket
 
 SPEC CHECKSUMS:
   ISHTTPOperation: dfe4b6b2b3d7803688b22df2c46ea9827081e723
   QBFlatButton: 3cf272985cdbdd04d6bc8b7ae01e4dd62cb09c17
+  SIOSocket: 2facc0bd02ae72d98c223634a46dd8ebdf9be321
 
 COCOAPODS: 0.37.1
