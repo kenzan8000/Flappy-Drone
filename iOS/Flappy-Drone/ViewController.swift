@@ -45,10 +45,10 @@ class ViewController: UIViewController {
 
 
     @IBAction func touchedUpInside(button button: UIButton) {
+        if self.socket == nil { return; }
+
+        //self.socket!.emit("event", args: [["join"]])
         //endself.countDownLabel.countDown(count: 3)
-        if self.socket != nil {
-            self.socket!.emit("event", args: [["hoge"]])
-        }
     }
 
 }

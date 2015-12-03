@@ -3,7 +3,6 @@ platform :ios, '7.0'
 xcodeproj 'Flappy-Drone'
 
 # network
-pod 'ISHTTPOperation'
 pod 'SIOSocket'
 
 # UI

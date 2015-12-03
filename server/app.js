@@ -19,32 +19,29 @@ io.on('connection', function(socket) {
     /// socket.io
     socket.on('disconnect', function() {
         console.log('disconnected: ' + socket.id);
-        console.log(socket.id);
         socket.emit('disconnect');
     });
 
-    socket.on('event', function(data) {
-        console.log(data);
+    socket.on('event', function(event) {
+        console.log('event: ' + event);
+        game.handleEvent(event, socket.id);
     });
 
 
     /// game
-    game.on('start', function(message) {
-        console.log(message)
-        socket.broadcast.emit('start');
+    game.on('start', function(players) {
+        console.log('start: ' + players)
+        socket.broadcast.emit({'start' : players});
     });
 
-    game.on('end', function(message) {
-        console.log(message)
-        socket.broadcast.emit('end');
+    game.on('end', function(players) {
+        console.log('end: ' + players)
+        socket.broadcast.emit({'end' : players});
     });
 
-    game.on('more than max players', function(message) {
-        socket.disconnect();
+    game.on('more than max number of players', function(players) {
+        socket.emit({'more than max number of players' : players});
     });
-
-    game.addPlayer(socket.id);
-
-});
+})
 
 server.listen(port);
