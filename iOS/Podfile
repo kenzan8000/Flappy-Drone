@@ -6,4 +6,3 @@ xcodeproj 'Flappy-Drone'
 pod 'SIOSocket'
 
 # UI
-pod 'QBFlatButton'

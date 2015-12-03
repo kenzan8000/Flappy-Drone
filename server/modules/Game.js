@@ -3,8 +3,9 @@
 
     /// constants
     var EVENTS = {
-        START : 'start',
-        MORE_THAN_MAX_NUMBER_OF_PLAYERS : 'more than max number of players'
+        JOIN : 'join',
+        MORE_THAN_MAX_NUMBER_OF_PLAYERS : 'more than max number of players',
+        START : 'start'
     };
 
 
@@ -34,16 +35,13 @@
     Game.prototype.handleEvent = function(event, sessionID) {
         var player = this.getPlayer(sessionID);
 
-        switch (event.kind) {
-            case 'join':
-                this.setPlayer(sessionID);
-                break;
-
-            case 'start':
-                this.setPlayerReady(sessionID);
-                if (player == null) { return; }
-                if (this.allPlayersAreReady()) { this.emit(EVENTS.START, this.players); }
-                break;
+        if (event == 'join' && player == null) {
+            this.setPlayer(sessionID);
+        }
+        else if (event == 'start') {
+            if (player == null) { return; }
+            player.isReady = true;
+            if (this.allPlayersAreReady()) { this.emit(EVENTS.START, this.players); }
         }
     }
 
@@ -55,6 +53,7 @@
         if (this.players.length < this.MAX_NUMBER_OF_PLAYERS) {
             var player = new Player(sessionID);
             this.players.push(player);
+            this.emit(EVENTS.JOIN, this.players);
         }
         else {
             this.emit(EVENTS.MORE_THAN_MAX_NUMBER_OF_PLAYERS, this.players);
@@ -67,7 +66,7 @@
      * @return Player or null
      **/
     Game.prototype.getPlayer = function(sessionID) {
-        for (var i = 0; i < this.players.count; i++) {
+        for (var i = 0; i < this.players.length; i++) {
             var player = this.players[i];
             if (player.sessionID == sessionID) { return player; }
         }
@@ -75,20 +74,12 @@
     }
 
     /**
-     * make player ready
-     * @param sessionID socket.io session ID
-     **/
-    Game.prototype.setPlayerReady = function(sessionID) {
-        var player = this.getPlayer(sessionID);
-        if (play != null) { player.isReady = true; }
-    }
-
-    /**
      * all players are ready?
      * @return Boolean
      **/
     Game.prototype.allPlayersAreReady = function() {
-        for (var i = 0; i < this.players.count; i++) {
+        if (this.players.length != this.MAX_NUMBER_OF_PLAYERS) { return false; }
+        for (var i = 0; i < this.players.length; i++) {
             var player = this.players[i];
             if (!player.isReady) { return false }
         }

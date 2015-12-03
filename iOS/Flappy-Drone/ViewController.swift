@@ -5,15 +5,27 @@ class ViewController: UIViewController {
 
     var socket: SIOSocket?
 
-    @IBOutlet weak var countDownLabel: FDCountDownLabel!
-    @IBOutlet weak var startButton: QBFlatButton!
+    @IBOutlet weak var joinButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var mashButton: UIButton!
 
+    @IBOutlet weak var countDownLabel: FDCountDownLabel!
+
+
+    override func loadView() {
+        super.loadView()
+
+        self.joinButton.hidden = false
+        self.startButton.hidden = true
+        self.mashButton.hidden = true
+
+        self.countDownLabel.completionHandler = { [unowned self] in
+            self.mashButton.hidden = false
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //self.countDownLabel.completionHandler = { [unowned self] in
-        //}
 
         SIOSocket.socketWithHost(
             "http://localhost:3000",
@@ -28,12 +40,19 @@ class ViewController: UIViewController {
                     print("disconnected")
                 }
 
-                self.socket!.on("start", callback: { (args: [AnyObject]!) -> Void in
-                    print(args)
+                self.socket!.on("join", callback: { [unowned self] (players: [AnyObject]!) -> Void in
+                    self.startButton.hidden = false
+                    print("join: \(players)")
                 })
 
-                self.socket!.on("end", callback: { (args: [AnyObject]!) -> Void in
-                    print(args)
+                self.socket!.on("more than max number of players", callback: { [unowned self] (players: [AnyObject]!) -> Void in
+                    self.joinButton.hidden = false
+                    print("more than max number of players: \(players)")
+                })
+
+                self.socket!.on("start", callback: { [unowned self] (players: [AnyObject]!) -> Void in
+                    self.countDownLabel.countDown(count: 3)
+                    print("start: \(players)")
                 })
             }
         )
@@ -47,8 +66,16 @@ class ViewController: UIViewController {
     @IBAction func touchedUpInside(button button: UIButton) {
         if self.socket == nil { return; }
 
-        //self.socket!.emit("event", args: [["join"]])
-        //endself.countDownLabel.countDown(count: 3)
+        if button == self.joinButton {
+            self.joinButton.hidden = true
+            self.socket!.emit("event", args: [["join"]])
+        }
+        else if button == self.startButton {
+            self.startButton.hidden = true
+            self.socket!.emit("event", args: [["start"]])
+        }
+        else if button == self.mashButton {
+        }
     }
 
 }

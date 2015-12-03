@@ -1,5 +1,5 @@
 /// constants
-const MAX_PLAYERS = 2;
+const MAX_PLAYERS = 1;
 
 
 /// modules
@@ -29,18 +29,16 @@ io.on('connection', function(socket) {
 
 
     /// game
-    game.on('start', function(players) {
-        console.log('start: ' + players)
-        socket.broadcast.emit({'start' : players});
-    });
-
-    game.on('end', function(players) {
-        console.log('end: ' + players)
-        socket.broadcast.emit({'end' : players});
+    game.on('join', function(players) {
+        socket.emit('join', players);
     });
 
     game.on('more than max number of players', function(players) {
-        socket.emit({'more than max number of players' : players});
+        socket.emit('more than max number of players', players);
+    });
+
+    game.on('start', function(players) {
+        socket.broadcast.emit('start', players);
     });
 })
 

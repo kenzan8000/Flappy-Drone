@@ -1,13 +1,10 @@
 PODS:
-  - QBFlatButton (1.1)
   - SIOSocket (0.2.0)
 
 DEPENDENCIES:
-  - QBFlatButton
   - SIOSocket
 
 SPEC CHECKSUMS:
-  QBFlatButton: 3cf272985cdbdd04d6bc8b7ae01e4dd62cb09c17
   SIOSocket: 2facc0bd02ae72d98c223634a46dd8ebdf9be321
 
 COCOAPODS: 0.39.0
