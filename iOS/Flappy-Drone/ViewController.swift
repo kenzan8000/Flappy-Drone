@@ -28,7 +28,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         SIOSocket.socketWithHost(
-            "http://localhost:3000",
+            //"http://localhost:3000",
+            "http://ardrone:3000",
             response: { [unowned self] (socket: SIOSocket!) -> Void in
                 self.socket = socket
 

@@ -19,7 +19,6 @@ io.on('connection', function(socket) {
     /// socket.io
     socket.on('disconnect', function() {
         console.log('disconnected: ' + socket.id);
-        socket.emit('disconnect');
     });
 
     socket.on('event', function(event) {
@@ -38,6 +37,7 @@ io.on('connection', function(socket) {
     });
 
     game.on('start', function(players) {
+        socket.emit('start', players);
         socket.broadcast.emit('start', players);
     });
 })
