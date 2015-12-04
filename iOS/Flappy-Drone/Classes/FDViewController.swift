@@ -34,7 +34,7 @@ class FDViewController: UIViewController {
 
         SIOSocket.socketWithHost(
             //"http://localhost:3000",
-            "http://drone:3000",
+            "http://kenzan8000.local:3000",
             response: { [unowned self] (socket: SIOSocket!) -> Void in
                 self.socket = socket
 
@@ -52,7 +52,7 @@ class FDViewController: UIViewController {
 
 
                 self.socket!.on("join", callback: { [unowned self] (players: [AnyObject]!) -> Void in
-                    self.startButton.hidden = false
+                    if (self.joinButton.hidden) { self.startButton.hidden = false }
                     print("join: \(players)")
                 })
 

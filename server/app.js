@@ -1,5 +1,5 @@
 /// constants
-const MAX_PLAYERS = 2;
+const MAX_NUMBER_OF_PLAYERS = 2;
 
 
 /// modules
@@ -10,7 +10,7 @@ var io = require('socket.io')(server);
 
 /// variables
 var port = process.env.PORT || 3000;
-var game = new Game(MAX_PLAYERS);
+var game = new Game(MAX_NUMBER_OF_PLAYERS);
 
 
 /// events
@@ -23,24 +23,27 @@ io.on('connection', function(socket) {
     });
 
     socket.on('event', function(event) {
-        console.log('event: ' + event);
+        console.log('event: ' + event + ' ' + socket.id);
         game.handleEvent(event, socket.id);
     });
 
 
     /// game
-    game.on('join', function(players) {
+    game.on('join', function(sessionID, players) {
         socket.emit('join', players);
     });
 
-    game.on('more than max number of players', function(players) {
-        socket.emit('more than max number of players', players);
+    game.on('more than max number of players', function(sessionID, players) {
+        if (socket.id == sessionID) {
+            socket.emit('more than max number of players', players);
+        }
     });
 
-    game.on('start', function(players) {
-        for (var i = 0; i < players.length; i++) { socket.emit('start', players); }
-        //socket.emit('start', players);
-        //socket.broadcast.emit('start', players);
+    game.on('start', function(sessionID, players) {
+        if (socket.id == sessionID) {
+            socket.emit('start', players);
+            socket.broadcast.emit('start', players);
+        }
     });
 })
 

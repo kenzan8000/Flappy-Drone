@@ -41,7 +41,7 @@
         else if (event == 'start') {
             if (player == null) { return; }
             player.isReady = true;
-            if (this.allPlayersAreReady()) { this.emit(EVENTS.START, this.players); }
+            if (this.allPlayersAreReady()) { this.emit(EVENTS.START, sessionID, this.players); }
         }
     }
 
@@ -53,10 +53,10 @@
         if (this.players.length < this.MAX_NUMBER_OF_PLAYERS) {
             var player = new Player(sessionID);
             this.players.push(player);
-            this.emit(EVENTS.JOIN, this.players);
+            this.emit(EVENTS.JOIN, sessionID, this.players);
         }
         else {
-            this.emit(EVENTS.MORE_THAN_MAX_NUMBER_OF_PLAYERS, this.players);
+            this.emit(EVENTS.MORE_THAN_MAX_NUMBER_OF_PLAYERS, sessionID, this.players);
         }
     };
 
