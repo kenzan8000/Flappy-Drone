@@ -8,27 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		5B5C0AC3CBC545CFECCB80AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F7C7AB6E704A3AACC8E25F2 /* libPods.a */; };
-		E6439E581C0689B200297B65 /* FDCountDownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6439E571C0689B200297B65 /* FDCountDownLabel.swift */; };
-		E6FED1F61C067FD700AEA68B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FED1F51C067FD700AEA68B /* AppDelegate.swift */; };
-		E6FED1F81C067FD700AEA68B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FED1F71C067FD700AEA68B /* ViewController.swift */; };
-		E6FED1FB1C067FD700AEA68B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6FED1F91C067FD700AEA68B /* Main.storyboard */; };
-		E6FED1FD1C067FD700AEA68B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6FED1FC1C067FD700AEA68B /* Assets.xcassets */; };
-		E6FED2001C067FD700AEA68B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6FED1FE1C067FD700AEA68B /* LaunchScreen.storyboard */; };
+		E67B2E571C115665009B9D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B2E4D1C115665009B9D59 /* AppDelegate.swift */; };
+		E67B2E581C115665009B9D59 /* FDCountDownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B2E4E1C115665009B9D59 /* FDCountDownLabel.swift */; };
+		E67B2E591C115665009B9D59 /* FDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B2E4F1C115665009B9D59 /* FDViewController.swift */; };
+		E67B2E5A1C115665009B9D59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67B2E511C115665009B9D59 /* LaunchScreen.storyboard */; };
+		E67B2E5B1C115665009B9D59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67B2E521C115665009B9D59 /* Main.storyboard */; };
+		E67B2E5C1C115665009B9D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E67B2E541C115665009B9D59 /* Assets.xcassets */; };
+		E67B2E5D1C115665009B9D59 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E67B2E561C115665009B9D59 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F7C7AB6E704A3AACC8E25F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1D00E3637622A07DF59BA5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DD6C355BBCB29933B38FCA32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		E6439E571C0689B200297B65 /* FDCountDownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDCountDownLabel.swift; sourceTree = "<group>"; };
-		E6439E5B1C069E3600297B65 /* Flappy-Drone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flappy-Drone-Bridging-Header.h"; sourceTree = "<group>"; };
+		E67B2E4D1C115665009B9D59 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E67B2E4E1C115665009B9D59 /* FDCountDownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDCountDownLabel.swift; sourceTree = "<group>"; };
+		E67B2E4F1C115665009B9D59 /* FDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDViewController.swift; sourceTree = "<group>"; };
+		E67B2E501C115665009B9D59 /* Flappy-Drone-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Flappy-Drone-Bridging-Header.h"; sourceTree = "<group>"; };
+		E67B2E511C115665009B9D59 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E67B2E521C115665009B9D59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E67B2E541C115665009B9D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E67B2E561C115665009B9D59 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6FED1F21C067FD700AEA68B /* Flappy-Drone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flappy-Drone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6FED1F51C067FD700AEA68B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E6FED1F71C067FD700AEA68B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E6FED1FA1C067FD700AEA68B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E6FED1FC1C067FD700AEA68B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E6FED1FF1C067FD700AEA68B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E6FED2011C067FD700AEA68B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E67B2E4C1C115665009B9D59 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E67B2E4D1C115665009B9D59 /* AppDelegate.swift */,
+				E67B2E4E1C115665009B9D59 /* FDCountDownLabel.swift */,
+				E67B2E4F1C115665009B9D59 /* FDViewController.swift */,
+				E67B2E501C115665009B9D59 /* Flappy-Drone-Bridging-Header.h */,
+				E67B2E511C115665009B9D59 /* LaunchScreen.storyboard */,
+				E67B2E521C115665009B9D59 /* Main.storyboard */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E67B2E531C115665009B9D59 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E67B2E541C115665009B9D59 /* Assets.xcassets */,
+				E67B2E551C115665009B9D59 /* Plists */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E67B2E551C115665009B9D59 /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				E67B2E561C115665009B9D59 /* Info.plist */,
+			);
+			path = Plists;
+			sourceTree = "<group>";
+		};
 		E6FED1E91C067FD700AEA68B = {
 			isa = PBXGroup;
 			children = (
@@ -81,14 +112,8 @@
 		E6FED1F41C067FD700AEA68B /* Flappy-Drone */ = {
 			isa = PBXGroup;
 			children = (
-				E6439E5B1C069E3600297B65 /* Flappy-Drone-Bridging-Header.h */,
-				E6FED1F51C067FD700AEA68B /* AppDelegate.swift */,
-				E6FED1F71C067FD700AEA68B /* ViewController.swift */,
-				E6439E571C0689B200297B65 /* FDCountDownLabel.swift */,
-				E6FED1F91C067FD700AEA68B /* Main.storyboard */,
-				E6FED1FC1C067FD700AEA68B /* Assets.xcassets */,
-				E6FED1FE1C067FD700AEA68B /* LaunchScreen.storyboard */,
-				E6FED2011C067FD700AEA68B /* Info.plist */,
+				E67B2E4C1C115665009B9D59 /* Classes */,
+				E67B2E531C115665009B9D59 /* Resources */,
 			);
 			path = "Flappy-Drone";
 			sourceTree = "<group>";
@@ -154,9 +179,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6FED2001C067FD700AEA68B /* LaunchScreen.storyboard in Resources */,
-				E6FED1FD1C067FD700AEA68B /* Assets.xcassets in Resources */,
-				E6FED1FB1C067FD700AEA68B /* Main.storyboard in Resources */,
+				E67B2E5D1C115665009B9D59 /* Info.plist in Resources */,
+				E67B2E5A1C115665009B9D59 /* LaunchScreen.storyboard in Resources */,
+				E67B2E5C1C115665009B9D59 /* Assets.xcassets in Resources */,
+				E67B2E5B1C115665009B9D59 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,32 +241,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6439E581C0689B200297B65 /* FDCountDownLabel.swift in Sources */,
-				E6FED1F81C067FD700AEA68B /* ViewController.swift in Sources */,
-				E6FED1F61C067FD700AEA68B /* AppDelegate.swift in Sources */,
+				E67B2E591C115665009B9D59 /* FDViewController.swift in Sources */,
+				E67B2E581C115665009B9D59 /* FDCountDownLabel.swift in Sources */,
+				E67B2E571C115665009B9D59 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		E6FED1F91C067FD700AEA68B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E6FED1FA1C067FD700AEA68B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E6FED1FE1C067FD700AEA68B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E6FED1FF1C067FD700AEA68B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E6FED2021C067FD700AEA68B /* Debug */ = {
@@ -331,11 +338,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = YES;
-				INFOPLIST_FILE = "Flappy-Drone/Info.plist";
+				INFOPLIST_FILE = "Flappy-Drone/Resources/Plists/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.kenzan8000.Flappy-Drone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Flappy-Drone/Flappy-Drone-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Flappy-Drone/Classes/Flappy-Drone-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -347,11 +354,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = YES;
-				INFOPLIST_FILE = "Flappy-Drone/Info.plist";
+				INFOPLIST_FILE = "Flappy-Drone/Resources/Plists/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.kenzan8000.Flappy-Drone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Flappy-Drone/Flappy-Drone-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Flappy-Drone/Classes/Flappy-Drone-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -1,7 +1,10 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+/// MARK: - FDViewController
+class FDViewController: UIViewController {
+
+    /// MARK: - properties
 
     var socket: SIOSocket?
 
@@ -11,6 +14,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var countDownLabel: FDCountDownLabel!
 
+
+    /// MARK: - life cycle
 
     override func loadView() {
         super.loadView()
@@ -29,7 +34,7 @@ class ViewController: UIViewController {
 
         SIOSocket.socketWithHost(
             //"http://localhost:3000",
-            "http://ardrone:3000",
+            "http://drone:3000",
             response: { [unowned self] (socket: SIOSocket!) -> Void in
                 self.socket = socket
 
@@ -37,9 +42,14 @@ class ViewController: UIViewController {
                     print("connected")
                 }
 
+                self.socket!.onError = { (errorInfo: [NSObject : AnyObject]!) -> Void in
+                    print(errorInfo)
+                }
+
                 self.socket!.onDisconnect = { () -> Void in
                     print("disconnected")
                 }
+
 
                 self.socket!.on("join", callback: { [unowned self] (players: [AnyObject]!) -> Void in
                     self.startButton.hidden = false
@@ -63,6 +73,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+
+    /// MARK: - event listener
 
     @IBAction func touchedUpInside(button button: UIButton) {
         if self.socket == nil { return; }

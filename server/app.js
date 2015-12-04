@@ -1,5 +1,5 @@
 /// constants
-const MAX_PLAYERS = 1;
+const MAX_PLAYERS = 2;
 
 
 /// modules
@@ -18,6 +18,7 @@ io.on('connection', function(socket) {
 
     /// socket.io
     socket.on('disconnect', function() {
+        game.removePlayer(socket.id);
         console.log('disconnected: ' + socket.id);
     });
 
@@ -37,8 +38,9 @@ io.on('connection', function(socket) {
     });
 
     game.on('start', function(players) {
-        socket.emit('start', players);
-        socket.broadcast.emit('start', players);
+        for (var i = 0; i < players.length; i++) { socket.emit('start', players); }
+        //socket.emit('start', players);
+        //socket.broadcast.emit('start', players);
     });
 })
 

@@ -74,6 +74,20 @@
     }
 
     /**
+     * remove player
+     * @param sessionID socket.io session ID
+     **/
+    Game.prototype.removePlayer = function(sessionID) {
+        for (var i = 0; i < this.players.length; i++) {
+            var player = this.players[i];
+            if (player.sessionID == sessionID) {
+                this.players.splice(i, 1);
+                break;
+            }
+        }
+    }
+
+    /**
      * all players are ready?
      * @return Boolean
      **/
