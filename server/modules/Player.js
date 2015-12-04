@@ -6,6 +6,7 @@
         this.sessionID = sessionID;
         this.currentLocation = {x: 0, y: 0, z:0};
         this.isReady = false;
+        this.moveCount = 0;
     }
 
     /// public api
@@ -21,7 +22,8 @@
      * @param move number
      **/
     Player.prototype.move = function(move) {
-        this.currentLocation = {x: this.currentLocation+move, y: 0, z:0};
+        this.currentLocation = {x: this.currentLocation.x+move, y: 0, z:0};
+        this.moveCount++;
     }
 
 

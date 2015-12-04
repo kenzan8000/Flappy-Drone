@@ -7,7 +7,7 @@ class FDViewController: UIViewController {
     /// MARK: - properties
 
     var socket: SIOSocket?
-    //var mashCount = 0
+    var mashCount = 0
 
     @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
@@ -27,8 +27,8 @@ class FDViewController: UIViewController {
         self.mashButton.hidden = true
 
         self.countDownLabel.completionHandler = { [unowned self] in
-            //self.moveDrone()
             self.mashButton.hidden = false
+            self.moveDrone()
         }
     }
 
@@ -75,9 +75,10 @@ class FDViewController: UIViewController {
                     self.setDebugText("start\n\(players)")
                 })
 
-                //self.socket!.on("move", callback: { [unowned self] (players: [AnyObject]!) -> Void in
-                //    self.setDebugText("\"move\"\n\(players)")
-                //})
+                self.socket!.on("move", callback: { [unowned self] (players: [AnyObject]!) -> Void in
+                    self.moveDrone()
+                    self.setDebugText("move\n\(players)")
+                })
 
             }
         )
@@ -102,28 +103,27 @@ class FDViewController: UIViewController {
             self.socket!.emit("event", args: [["start"]])
         }
         else if button == self.mashButton {
-            //self.mashCount++
+            self.mashCount++
         }
     }
 
 
     /// MARK: - private api
 
-//    /**
-//     * move drone
-//     **/
-//    private func moveDrone() {
-//        self.socket!.emit("event", args: [[["{move : \(self.mashCount)}"]]])
-//        self.mashCount = 0
-//
-//        dispatch_after(
-//            dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC))),
-//            dispatch_get_main_queue(),
-//            { [unowned self] in
-//                self.moveDrone()
-//            }
-//        )
-//    }
+    /**
+     * move drone
+     **/
+    private func moveDrone() {
+        self.mashCount = 0
+
+        dispatch_after(
+            dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC))),
+            dispatch_get_main_queue(),
+            { [unowned self] in
+                self.socket!.emit("event", args: [["move" : "\(self.mashCount)"]])
+            }
+        )
+    }
 
     /**
      * set debug text

@@ -44,9 +44,12 @@
             player.setReady(true);
             if (this.allPlayersAreReady()) { this.emit(EVENTS.START, sessionID, this.players); }
         }
-        else {
-            //player.move(json['move'])
-            //this.emit(EVENTS.MOVE, sessionID, this.players);
+        else if ('move' in event) {
+            var move = parseFloat(event['move']);
+            if (!isNaN(move)) { player.move(move); }
+            if (this.allPlayersMoveCountsAreSame()) {
+                this.emit(EVENTS.MOVE, sessionID, this.players);
+            }
         }
     }
 
@@ -101,6 +104,17 @@
         for (var i = 0; i < this.players.length; i++) {
             var player = this.players[i];
             if (!player.isReady) { return false }
+        }
+        return true;
+    }
+
+    /**
+     * all players' move counts are same?
+     * @return Boolean
+     **/
+    Game.prototype.allPlayersMoveCountsAreSame = function() {
+        for (var i = 1; i < this.players.length; i++) {
+            if (this.players[i].moveCount != this.players[i-1].moveCount) { return false; }
         }
         return true;
     }

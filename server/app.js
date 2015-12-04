@@ -47,8 +47,10 @@ io.on('connection', function(socket) {
     });
 
     game.on('move', function(sessionID, players) {
-        socket.emit('move', players);
-        socket.broadcast.emit('move', players);
+        if (socket.id == sessionID) {
+            socket.emit('move', players);
+            socket.broadcast.emit('move', players);
+        }
     });
 
 })
