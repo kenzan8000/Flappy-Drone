@@ -5,7 +5,8 @@
     var EVENTS = {
         JOIN : 'join',
         MORE_THAN_MAX_NUMBER_OF_PLAYERS : 'more than max number of players',
-        START : 'start'
+        START : 'start',
+        MOVE : 'move'
     };
 
 
@@ -40,8 +41,12 @@
         }
         else if (event == 'start') {
             if (player == null) { return; }
-            player.isReady = true;
+            player.setReady(true);
             if (this.allPlayersAreReady()) { this.emit(EVENTS.START, sessionID, this.players); }
+        }
+        else {
+            //player.move(json['move'])
+            //this.emit(EVENTS.MOVE, sessionID, this.players);
         }
     }
 
@@ -88,7 +93,7 @@
     }
 
     /**
-     * all players are ready?
+     * all players are ready to start game?
      * @return Boolean
      **/
     Game.prototype.allPlayersAreReady = function() {

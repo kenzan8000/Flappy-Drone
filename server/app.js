@@ -45,6 +45,12 @@ io.on('connection', function(socket) {
             socket.broadcast.emit('start', players);
         }
     });
+
+    game.on('move', function(sessionID, players) {
+        socket.emit('move', players);
+        socket.broadcast.emit('move', players);
+    });
+
 })
 
 server.listen(port);
