@@ -23,36 +23,28 @@ io.on('connection', function(socket) {
     });
 
     socket.on('event', function(event) {
-        console.log('event: ' + event + ' ' + socket.id);
         game.handleEvent(event, socket.id);
+        console.log('event: ' + event + ' ' + socket.id);
     });
 
 
     /// game
     game.on('join', function(sessionID, players) {
-        socket.emit('join', players);
+        if (socket.id == sessionID) { io.sockets.emit('join', players); }
     });
 
     game.on('more than max number of players', function(sessionID, players) {
-        if (socket.id == sessionID) {
-            socket.emit('more than max number of players', players);
-        }
+        if (socket.id == sessionID) { socket.emit('more than max number of players', players); }
     });
 
     game.on('start', function(sessionID, players) {
-        if (socket.id == sessionID) {
-            socket.emit('start', players);
-            socket.broadcast.emit('start', players);
-        }
+        if (socket.id == sessionID) { io.sockets.emit('move', players); }
     });
 
     game.on('move', function(sessionID, players) {
-        if (socket.id == sessionID) {
-            socket.emit('move', players);
-            socket.broadcast.emit('move', players);
-        }
+        if (socket.id == sessionID) { io.sockets.emit('move', players); }
     });
 
-})
+});
 
 server.listen(port);

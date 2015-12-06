@@ -9,6 +9,7 @@
         this.moveCount = 0;
     }
 
+
     /// public api
 
     /**

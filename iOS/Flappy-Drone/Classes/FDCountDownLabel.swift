@@ -34,7 +34,7 @@ class FDCountDownLabel: UILabel {
                     delay: 0.0,
                     options: .CurveLinear,
                     animations: { [unowned self] in
-                        self.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(0.60, 0.60), CGFloat(-M_PI-0.01))
+                        self.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(0.60, 0.60), CGFloat(-M_PI-0.1))
                     },
                     completion: { [unowned self] finished in
                         UIView.animateWithDuration(
@@ -42,7 +42,7 @@ class FDCountDownLabel: UILabel {
                             delay: 0.0,
                             options: .CurveLinear,
                             animations: { [unowned self] in
-                                self.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(1.0, 1.0), CGFloat(-0.01))
+                                self.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(1.0, 1.0), CGFloat(-0.1))
                             },
                             completion: { [unowned self] finished in
                                 self.vanish(count: count)
