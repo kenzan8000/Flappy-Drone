@@ -1,6 +1,9 @@
 (function(global) {
     'use strict;'
 
+    const MAX_HEIGHT = 2.0
+    const MIN_HEIGHT = 0.5
+
     /// Player
     function Player(sessionID) {
         this.sessionID = sessionID;
@@ -23,7 +26,15 @@
      * @param move number
      **/
     Player.prototype.move = function(move) {
-        this.currentLocation = {x: this.currentLocation.x+move, y: 0, z:0};
+        var height = this.currentLocation.z + move / 100.0;
+        if (height > MAX_HEIGHT) { height = 2.0; }
+        else if (height < MIN_HEIGHT) { height = 0.0; }
+        this.currentLocation = {
+            x: this.currentLocation.x,
+            y: this.currentLocation.y,
+            z: height
+        };
+
         this.moveCount++;
     }
 

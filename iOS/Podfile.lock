@@ -1,10 +1,22 @@
 PODS:
+  - ARDroneSDK3 (3.7.5)
   - SIOSocket (0.2.0)
 
 DEPENDENCIES:
+  - ARDroneSDK3 (from `https://github.com/kenzan8000/ARDroneSDK3.git`)
   - SIOSocket
 
+EXTERNAL SOURCES:
+  ARDroneSDK3:
+    :git: https://github.com/kenzan8000/ARDroneSDK3.git
+
+CHECKOUT OPTIONS:
+  ARDroneSDK3:
+    :commit: 8e6d34612dc8a6807a69a0445facce41f281d518
+    :git: https://github.com/kenzan8000/ARDroneSDK3.git
+
 SPEC CHECKSUMS:
+  ARDroneSDK3: 156c34f55916b84af64ad8ffc3ac5b8fe33aba76
   SIOSocket: 2facc0bd02ae72d98c223634a46dd8ebdf9be321
 
 COCOAPODS: 0.39.0

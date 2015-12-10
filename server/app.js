@@ -1,5 +1,5 @@
 /// constants
-const MAX_NUMBER_OF_PLAYERS = 2;
+const MAX_NUMBER_OF_PLAYERS = 1;
 
 
 /// modules
@@ -38,7 +38,7 @@ io.on('connection', function(socket) {
     });
 
     game.on('start', function(sessionID, players) {
-        if (socket.id == sessionID) { io.sockets.emit('move', players); }
+        if (socket.id == sessionID) { io.sockets.emit('start', players); }
     });
 
     game.on('move', function(sessionID, players) {

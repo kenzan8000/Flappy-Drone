@@ -1,18 +1,96 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lcG-K1-7zH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="QjA-ZA-qwv">
+            <objects>
+                <navigationController id="lcG-K1-7zH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7OV-bg-Tqm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="tsu-fa-bxi" kind="relationship" relationship="rootViewController" id="rJV-OZ-HBB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ava-cU-pEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-598" y="368"/>
+        </scene>
+        <!--Connect View Controller-->
+        <scene sceneID="ow6-nt-iJ4">
+            <objects>
+                <viewController id="tsu-fa-bxi" customClass="FDConnectViewController" customModule="Flappy_Drone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PFT-gq-qRP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uqn-yQ-iXU">
+                                <rect key="frame" x="64" y="128" width="192" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="your drone: none">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchedUpInsideButton:" destination="tsu-fa-bxi" eventType="touchUpInside" id="Efv-zh-sx7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EpZ-yE-yij">
+                                <rect key="frame" x="80" y="468" width="160" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="connect"/>
+                                <connections>
+                                    <action selector="touchedUpInsideButton:" destination="tsu-fa-bxi" eventType="touchUpInside" id="mlv-5V-l9g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nUc-ZM-UOR"/>
+                    <connections>
+                        <outlet property="connectButton" destination="EpZ-yE-yij" id="URb-E6-y1P"/>
+                        <outlet property="droneButton" destination="uqn-yQ-iXU" id="RD0-Fc-Y6J"/>
+                        <segue destination="BYZ-38-t0r" kind="push" identifier="FDRaceViewController" id="4lg-Hi-Kw2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aby-XE-o7j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-218" y="368"/>
+        </scene>
+        <!--Race View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FDViewController" customModule="Flappy_Drone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FDRaceViewController" customModule="Flappy_Drone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xWw-Q0-ArH" customClass="FDCountDownLabel" customModule="Flappy_Drone" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="184" width="320" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="180"/>
+                                <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HXm-9Q-1pi">
+                                <rect key="frame" x="20" y="64" width="280" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6lv-ru-85T">
                                 <rect key="frame" x="40" y="440" width="240" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -40,35 +118,66 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <state key="normal" title="Mash"/>
                                 <connections>
-                                    <action selector="touchedUpInsideButton:" destination="BYZ-38-t0r" eventType="touchDown" id="khT-tx-7SB"/>
+                                    <action selector="touchedDownWithButton:" destination="BYZ-38-t0r" eventType="touchDown" id="4SL-Qw-yEY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xWw-Q0-ArH" customClass="FDCountDownLabel" customModule="Flappy_Drone" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="184" width="320" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hHg-JD-oaX">
+                                <rect key="frame" x="32" y="352" width="96" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="180"/>
-                                <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HXm-9Q-1pi">
-                                <rect key="frame" x="20" y="40" width="280" height="400"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="up"/>
+                                <connections>
+                                    <action selector="touchedDownWithButton:" destination="BYZ-38-t0r" eventType="touchDown" id="idf-rh-9dL"/>
+                                    <action selector="touchedUpInsideButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ikJ-Es-W8d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BNA-5G-qyK">
+                                <rect key="frame" x="188" y="352" width="96" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="down"/>
+                                <connections>
+                                    <action selector="touchedDownWithButton:" destination="BYZ-38-t0r" eventType="touchDown" id="lkq-D2-xdY"/>
+                                    <action selector="touchedUpInsideButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EB2-sl-4wA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RA1-VZ-sUs">
+                                <rect key="frame" x="32" y="400" width="96" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="takeoff"/>
+                                <connections>
+                                    <action selector="touchedUpInsideButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GeP-Iy-0HZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="A90-Hj-0Kq">
+                                <rect key="frame" x="188" y="400" width="96" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="land"/>
+                                <connections>
+                                    <action selector="touchedUpInsideButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0MU-7g-8qf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="LZC-9B-tae"/>
                     <connections>
                         <outlet property="countDownLabel" destination="xWw-Q0-ArH" id="xKf-cB-cNV"/>
                         <outlet property="debugLabel" destination="HXm-9Q-1pi" id="93B-Tu-mYO"/>
+                        <outlet property="downButton" destination="BNA-5G-qyK" id="1QC-k9-9D6"/>
                         <outlet property="joinButton" destination="huN-0f-vVZ" id="FPw-Up-wOL"/>
+                        <outlet property="landButton" destination="A90-Hj-0Kq" id="ewq-1b-8Zf"/>
                         <outlet property="mashButton" destination="Pmh-4f-J6c" id="zlb-JL-LO4"/>
                         <outlet property="startButton" destination="6lv-ru-85T" id="IZN-bF-btV"/>
+                        <outlet property="takeoffButton" destination="RA1-VZ-sUs" id="xzC-HX-Ohz"/>
+                        <outlet property="upButton" destination="hHg-JD-oaX" id="k9O-yW-Vjk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -2,6 +2,9 @@ platform :ios, '7.0'
 
 xcodeproj 'Flappy-Drone'
 
+# Drone
+pod 'ARDroneSDK3', :git => 'https://github.com/kenzan8000/ARDroneSDK3.git'
+
 # network
 pod 'SIOSocket'
 

@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		5B5C0AC3CBC545CFECCB80AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F7C7AB6E704A3AACC8E25F2 /* libPods.a */; };
+		E645600B1C18B50400409EE7 /* FDCountDownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64560091C18B50400409EE7 /* FDCountDownLabel.swift */; };
+		E645600C1C18B50400409EE7 /* FDRaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E645600A1C18B50400409EE7 /* FDRaceViewController.swift */; };
+		E645600E1C18B55400409EE7 /* FDConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E645600D1C18B55400409EE7 /* FDConnectViewController.swift */; };
+		E64560111C18B9AE00409EE7 /* SIOSocket+Flappy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64560101C18B9AE00409EE7 /* SIOSocket+Flappy.swift */; };
+		E64560131C18C21300409EE7 /* FDConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64560121C18C21300409EE7 /* FDConstant.swift */; };
+		E64560191C18EDFF00409EE7 /* FDDrone.m in Sources */ = {isa = PBXBuildFile; fileRef = E64560181C18EDFF00409EE7 /* FDDrone.m */; };
 		E67B2E571C115665009B9D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B2E4D1C115665009B9D59 /* AppDelegate.swift */; };
-		E67B2E581C115665009B9D59 /* FDCountDownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B2E4E1C115665009B9D59 /* FDCountDownLabel.swift */; };
-		E67B2E591C115665009B9D59 /* FDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67B2E4F1C115665009B9D59 /* FDViewController.swift */; };
 		E67B2E5A1C115665009B9D59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67B2E511C115665009B9D59 /* LaunchScreen.storyboard */; };
 		E67B2E5B1C115665009B9D59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67B2E521C115665009B9D59 /* Main.storyboard */; };
 		E67B2E5C1C115665009B9D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E67B2E541C115665009B9D59 /* Assets.xcassets */; };
@@ -21,14 +25,20 @@
 		0F7C7AB6E704A3AACC8E25F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1D00E3637622A07DF59BA5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DD6C355BBCB29933B38FCA32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E64560091C18B50400409EE7 /* FDCountDownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDCountDownLabel.swift; sourceTree = "<group>"; };
+		E645600A1C18B50400409EE7 /* FDRaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDRaceViewController.swift; sourceTree = "<group>"; };
+		E645600D1C18B55400409EE7 /* FDConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDConnectViewController.swift; sourceTree = "<group>"; };
+		E64560101C18B9AE00409EE7 /* SIOSocket+Flappy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SIOSocket+Flappy.swift"; sourceTree = "<group>"; };
+		E64560121C18C21300409EE7 /* FDConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDConstant.swift; sourceTree = "<group>"; };
+		E64560171C18EDFF00409EE7 /* FDDrone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDrone.h; sourceTree = "<group>"; };
+		E64560181C18EDFF00409EE7 /* FDDrone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDrone.m; sourceTree = "<group>"; };
 		E67B2E4D1C115665009B9D59 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E67B2E4E1C115665009B9D59 /* FDCountDownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDCountDownLabel.swift; sourceTree = "<group>"; };
-		E67B2E4F1C115665009B9D59 /* FDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDViewController.swift; sourceTree = "<group>"; };
 		E67B2E501C115665009B9D59 /* Flappy-Drone-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Flappy-Drone-Bridging-Header.h"; sourceTree = "<group>"; };
 		E67B2E511C115665009B9D59 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E67B2E521C115665009B9D59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E67B2E541C115665009B9D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E67B2E561C115665009B9D59 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E69516B91C14F43B00F3A128 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E6FED1F21C067FD700AEA68B /* Flappy-Drone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flappy-Drone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -56,18 +66,56 @@
 		62CAC63E879C59D6B73D315B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E69516B91C14F43B00F3A128 /* CoreBluetooth.framework */,
 				0F7C7AB6E704A3AACC8E25F2 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E64560071C18B50400409EE7 /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				E645600D1C18B55400409EE7 /* FDConnectViewController.swift */,
+			);
+			path = Connect;
+			sourceTree = "<group>";
+		};
+		E64560081C18B50400409EE7 /* Race */ = {
+			isa = PBXGroup;
+			children = (
+				E645600A1C18B50400409EE7 /* FDRaceViewController.swift */,
+				E64560091C18B50400409EE7 /* FDCountDownLabel.swift */,
+			);
+			path = Race;
+			sourceTree = "<group>";
+		};
+		E645600F1C18B9AE00409EE7 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				E64560101C18B9AE00409EE7 /* SIOSocket+Flappy.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		E64560141C18EB8700409EE7 /* Drone */ = {
+			isa = PBXGroup;
+			children = (
+				E64560171C18EDFF00409EE7 /* FDDrone.h */,
+				E64560181C18EDFF00409EE7 /* FDDrone.m */,
+			);
+			path = Drone;
+			sourceTree = "<group>";
+		};
 		E67B2E4C1C115665009B9D59 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E67B2E4D1C115665009B9D59 /* AppDelegate.swift */,
-				E67B2E4E1C115665009B9D59 /* FDCountDownLabel.swift */,
-				E67B2E4F1C115665009B9D59 /* FDViewController.swift */,
 				E67B2E501C115665009B9D59 /* Flappy-Drone-Bridging-Header.h */,
+				E64560121C18C21300409EE7 /* FDConstant.swift */,
+				E67B2E4D1C115665009B9D59 /* AppDelegate.swift */,
+				E64560071C18B50400409EE7 /* Connect */,
+				E64560081C18B50400409EE7 /* Race */,
+				E645600F1C18B9AE00409EE7 /* WebSocket */,
+				E64560141C18EB8700409EE7 /* Drone */,
 				E67B2E511C115665009B9D59 /* LaunchScreen.storyboard */,
 				E67B2E521C115665009B9D59 /* Main.storyboard */,
 			);
@@ -241,9 +289,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E67B2E591C115665009B9D59 /* FDViewController.swift in Sources */,
-				E67B2E581C115665009B9D59 /* FDCountDownLabel.swift in Sources */,
+				E645600B1C18B50400409EE7 /* FDCountDownLabel.swift in Sources */,
+				E64560131C18C21300409EE7 /* FDConstant.swift in Sources */,
+				E64560111C18B9AE00409EE7 /* SIOSocket+Flappy.swift in Sources */,
+				E64560191C18EDFF00409EE7 /* FDDrone.m in Sources */,
 				E67B2E571C115665009B9D59 /* AppDelegate.swift in Sources */,
+				E645600C1C18B50400409EE7 /* FDRaceViewController.swift in Sources */,
+				E645600E1C18B55400409EE7 /* FDConnectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +322,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -314,6 +367,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -337,8 +391,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flappy-Drone/Frameworks",
+				);
 				INFOPLIST_FILE = "Flappy-Drone/Resources/Plists/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.kenzan8000.Flappy-Drone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,8 +412,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flappy-Drone/Frameworks",
+				);
 				INFOPLIST_FILE = "Flappy-Drone/Resources/Plists/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.kenzan8000.Flappy-Drone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
