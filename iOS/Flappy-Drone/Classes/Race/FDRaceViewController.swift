@@ -36,6 +36,7 @@ class FDRaceViewController: UIViewController {
             self.mashButton.hidden = false
             self.moveDrone()
         }
+
     }
 
     override func viewDidLoad() {
@@ -47,21 +48,24 @@ class FDRaceViewController: UIViewController {
             })
             self.setDebugText("join\n\(players)")
         })
-
         self.socket.on("more than max number of players", callback: { [unowned self] (players: [AnyObject]!) -> Void in
             dispatch_async(dispatch_get_main_queue(), { [unowned self] () -> Void in
                 self.joinButton.hidden = false
             })
             self.setDebugText("more than max number of players\n\(players)")
         })
-
         self.socket.on("start", callback: { [unowned self] (players: [AnyObject]!) -> Void in
-            dispatch_async(dispatch_get_main_queue(), { [unowned self] () -> Void in
-                self.countDownLabel.countDown(count: 3)
-            })
+            FDDrone.sharedInstance().takeoff()
+            dispatch_after(
+                  dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))),
+                  dispatch_get_main_queue(),
+                  { [unowned self] () -> Void in
+                        self.countDownLabel.countDown(count: 3)
+                  }
+            )
+
             self.setDebugText("start\n\(players)")
         })
-
         self.socket.on("move", callback: { [unowned self] (players: [AnyObject]!) -> Void in
             self.moveDrone()
             self.setDebugText("move\n\(players)")
@@ -125,6 +129,16 @@ class FDRaceViewController: UIViewController {
      * move drone
      **/
     private func moveDrone() {
+        let interval = Int64(self.mashCount)
+        FDDrone.sharedInstance().startGazUp()
+        dispatch_after(
+            dispatch_time(DISPATCH_TIME_NOW, Int64(0.01 * Double(NSEC_PER_SEC)) * interval),
+            dispatch_get_main_queue(),
+            { () -> Void in
+                FDDrone.sharedInstance().stopGazUp()
+            }
+        )
+
         self.mashCount = 0
 
         dispatch_after(

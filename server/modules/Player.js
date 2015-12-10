@@ -7,7 +7,7 @@
     /// Player
     function Player(sessionID) {
         this.sessionID = sessionID;
-        this.currentLocation = {x: 0, y: 0, z:0};
+        this.currentLocation = {x: 0, y: 0, z:0.5};
         this.isReady = false;
         this.moveCount = 0;
     }
@@ -34,7 +34,6 @@
             y: this.currentLocation.y,
             z: height
         };
-
         this.moveCount++;
     }
 
