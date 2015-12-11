@@ -30,18 +30,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uqn-yQ-iXU">
-                                <rect key="frame" x="64" y="128" width="192" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" id="p6u-uJ-4tN">
+                                <rect key="frame" x="0.0" y="64" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="your drone: none">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
-                                    <action selector="touchedUpInsideButton:" destination="tsu-fa-bxi" eventType="touchUpInside" id="Efv-zh-sx7"/>
+                                    <outlet property="dataSource" destination="tsu-fa-bxi" id="fNv-67-r2c"/>
+                                    <outlet property="delegate" destination="tsu-fa-bxi" id="nIA-Fa-Slf"/>
                                 </connections>
-                            </button>
+                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EpZ-yE-yij">
                                 <rect key="frame" x="80" y="468" width="160" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -59,7 +56,7 @@
                     <navigationItem key="navigationItem" id="nUc-ZM-UOR"/>
                     <connections>
                         <outlet property="connectButton" destination="EpZ-yE-yij" id="URb-E6-y1P"/>
-                        <outlet property="droneButton" destination="uqn-yQ-iXU" id="RD0-Fc-Y6J"/>
+                        <outlet property="dronePicker" destination="p6u-uJ-4tN" id="obU-vX-w1q"/>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="FDRaceViewController" id="4lg-Hi-Kw2"/>
                     </connections>
                 </viewController>

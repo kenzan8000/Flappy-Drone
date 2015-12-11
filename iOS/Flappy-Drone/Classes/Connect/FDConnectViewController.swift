@@ -8,7 +8,7 @@ class FDConnectViewController: UIViewController {
 
     var drones: [ARService] = []
 
-    @IBOutlet weak var droneButton: UIButton!
+    @IBOutlet weak var dronePicker: UIPickerView!
     @IBOutlet weak var connectButton: UIButton!
 
 
@@ -63,7 +63,6 @@ class FDConnectViewController: UIViewController {
      **/
     @IBAction func touchedUpInside(button button: UIButton) {
         if button == self.connectButton { self.connect() }
-        if button == self.droneButton { }
     }
 
 
@@ -80,8 +79,7 @@ class FDConnectViewController: UIViewController {
         if services == nil { return }
 
         self.drones = services!
-        let title = (self.drones.count > 0) ? self.drones[0].name : "none"
-        self.droneButton.setTitle("your drone: \(title)", forState: .Normal)
+        self.dronePicker.reloadAllComponents()
     }
 
 
@@ -93,7 +91,9 @@ class FDConnectViewController: UIViewController {
     private func connect() {
         // drone
         if self.drones.count == 0 { return }
-        let succeeded = FDDrone.sharedInstance().connectWithService(self.drones[0])
+        let row = self.dronePicker.selectedRowInComponent(0)
+        if row < 0 || row >= self.drones.count { return }
+        let succeeded = FDDrone.sharedInstance().connectWithService(self.drones[row])
         if !succeeded { return }
 
         // web socket
@@ -129,4 +129,25 @@ class FDConnectViewController: UIViewController {
             }
         })
     }
+}
+
+
+/// MARK: - UIPickerViewDelegate, UIPickerViewDataSource
+extension FDConnectViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.drones.count
+    }
+
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.drones[row].name
+    }
+
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    }
+
 }
