@@ -154,29 +154,15 @@ class FDRaceViewController: UIViewController {
 
                 FDDrone.sharedInstance().startGazUp()
                 dispatch_after(
-                    dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC))),
+                    dispatch_time(DISPATCH_TIME_NOW, Int64(0.45 * Double(NSEC_PER_SEC))),
                     dispatch_get_main_queue(),
                     { () -> Void in
                         FDDrone.sharedInstance().startGazDown()
                         dispatch_after(
-                            dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC))),
+                            dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC))),
                             dispatch_get_main_queue(),
                             { () -> Void in
-                                FDDrone.sharedInstance().startGazUp()
-                                dispatch_after(
-                                    dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC))),
-                                    dispatch_get_main_queue(),
-                                    { () -> Void in
-                                        FDDrone.sharedInstance().startGazDown()
-                                        dispatch_after(
-                                            dispatch_time(DISPATCH_TIME_NOW, Int64(0.4 * Double(NSEC_PER_SEC))),
-                                            dispatch_get_main_queue(),
-                                            { () -> Void in
-                                                FDDrone.sharedInstance().stopGazDown()
-                                            }
-                                        )
-                                    }
-                                )
+                                FDDrone.sharedInstance().stopGazDown()
                             }
                         )
                     }
@@ -196,7 +182,7 @@ class FDRaceViewController: UIViewController {
         self.mashCount = 0
 
         dispatch_after(
-            dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC))),
+            dispatch_time(DISPATCH_TIME_NOW, Int64(1.2 * Double(NSEC_PER_SEC))),
             dispatch_get_main_queue(),
             { [unowned self] in
                 self.socket.emit("event", args: [["move" : "\(self.mashCount)"]])
