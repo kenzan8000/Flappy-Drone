@@ -5,9 +5,7 @@
  * @param body log
  */
 func FDLOG(body: Any) {
-#if DEBUG
     print(body)
-#endif
 }
 
 

@@ -25,4 +25,15 @@ extension SIOSocket {
         )
     }
 
+
+    /// MARK: - public api
+
+    /**
+     * get session ID
+     * @return session ID string
+     **/
+    func sessionID() -> String {
+        return "\(self.javascriptContext.objectForKeyedSubscript("objc_socket").objectForKeyedSubscript("io").objectForKeyedSubscript("engine").objectForKeyedSubscript("id"))"
+    }
+
 }

@@ -1,8 +1,8 @@
 (function(global) {
     'use strict;'
 
-    const MAX_HEIGHT = 2.0
-    const MIN_HEIGHT = 0.5
+    const MAX_VALUE = 2.0
+    const MIN_VALUE = 0.0
 
     /// Player
     function Player(sessionID) {
@@ -26,13 +26,13 @@
      * @param move number
      **/
     Player.prototype.move = function(move) {
-        var height = this.currentLocation.z + move / 100.0;
-        if (height > MAX_HEIGHT) { height = 2.0; }
-        else if (height < MIN_HEIGHT) { height = 0.0; }
+        var value = this.currentLocation.x + move / 100.0;
+        if (value > MAX_VALUE) { value = 2.0; }
+        else if (value < MIN_VALUE) { value = 0.0; }
         this.currentLocation = {
-            x: this.currentLocation.x,
+            x: value,
             y: this.currentLocation.y,
-            z: height
+            z: this.currentLocation.z
         };
         this.moveCount++;
     }

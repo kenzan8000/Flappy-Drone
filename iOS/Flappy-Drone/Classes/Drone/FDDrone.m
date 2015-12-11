@@ -115,105 +115,162 @@ void onCommandReceived (eARCONTROLLER_DICTIONARY_KEY commandKey, ARCONTROLLER_DI
 
 - (void)emergency
 {
-    _deviceController->miniDrone->sendPilotingEmergency(_deviceController->miniDrone);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->sendPilotingEmergency(bself.deviceController->miniDrone);
+    });
 }
 
 - (void)takeoff
 {
-    _deviceController->miniDrone->sendPilotingTakeOff(_deviceController->miniDrone);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->sendPilotingTakeOff(bself.deviceController->miniDrone);
+    });
 }
 
 - (void)land
 {
-    _deviceController->miniDrone->sendPilotingLanding(_deviceController->miniDrone);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->sendPilotingLanding(bself.deviceController->miniDrone);
+    });
 }
 
 - (void)startGazUp
 {
-    _deviceController->miniDrone->setPilotingPCMDGaz(_deviceController->miniDrone, 50);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDGaz(bself.deviceController->miniDrone, 50);
+    });
 }
 
 - (void)stopGazUp
 {
-    _deviceController->miniDrone->setPilotingPCMDGaz(_deviceController->miniDrone, 0);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDGaz(bself.deviceController->miniDrone, 0);
+    });
 }
 
 - (void)startGazDown
 {
-    _deviceController->miniDrone->setPilotingPCMDGaz(_deviceController->miniDrone, -50);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDGaz(bself.deviceController->miniDrone, -50);
+    });
 }
 
 - (void)stopGazDown
 {
-    _deviceController->miniDrone->setPilotingPCMDGaz(_deviceController->miniDrone, 0);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDGaz(bself.deviceController->miniDrone, 0);
+    });
 }
 
 - (void)startYawLeft
 {
-    _deviceController->miniDrone->setPilotingPCMDYaw(_deviceController->miniDrone, -50);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDYaw(bself.deviceController->miniDrone, -50);
+    });
 }
 
 - (void)stopYawLeft
 {
-    _deviceController->miniDrone->setPilotingPCMDYaw(_deviceController->miniDrone, 0);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDYaw(bself.deviceController->miniDrone, 0);
+    });
 }
 
 - (void)startYawRight
 {
-    _deviceController->miniDrone->setPilotingPCMDYaw(_deviceController->miniDrone, 50);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDYaw(bself.deviceController->miniDrone, 50);
+    });
 }
 
 - (void)stopYawRight
 {
-    _deviceController->miniDrone->setPilotingPCMDYaw(_deviceController->miniDrone, 0);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDYaw(bself.deviceController->miniDrone, 0);
+    });
 }
 
 - (void)startRollLeft
 {
-    _deviceController->miniDrone->setPilotingPCMDFlag(_deviceController->miniDrone, 1);
-    _deviceController->miniDrone->setPilotingPCMDRoll(_deviceController->miniDrone, -50);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDFlag(bself.deviceController->miniDrone, 1);
+    bself.deviceController->miniDrone->setPilotingPCMDRoll(bself.deviceController->miniDrone, -50);
+    });
 }
 
 - (void)stopRollLeft
 {
-    _deviceController->miniDrone->setPilotingPCMDFlag(_deviceController->miniDrone, 0);
-    _deviceController->miniDrone->setPilotingPCMDRoll(_deviceController->miniDrone, 0);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDFlag(bself.deviceController->miniDrone, 0);
+    bself.deviceController->miniDrone->setPilotingPCMDRoll(bself.deviceController->miniDrone, 0);
+    });
 }
 
 - (void)startRollRight
 {
-    _deviceController->miniDrone->setPilotingPCMDFlag(_deviceController->miniDrone, 1);
-    _deviceController->miniDrone->setPilotingPCMDRoll(_deviceController->miniDrone, 50);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDFlag(bself.deviceController->miniDrone, 1);
+    bself.deviceController->miniDrone->setPilotingPCMDRoll(bself.deviceController->miniDrone, 50);
+    });
 }
 
 - (void)stopRollRight
 {
-    _deviceController->miniDrone->setPilotingPCMDFlag(_deviceController->miniDrone, 0);
-    _deviceController->miniDrone->setPilotingPCMDRoll(_deviceController->miniDrone, 0);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDFlag(bself.deviceController->miniDrone, 0);
+    bself.deviceController->miniDrone->setPilotingPCMDRoll(bself.deviceController->miniDrone, 0);
+    });
 }
 
 - (void)startPitchForward
 {
-    _deviceController->miniDrone->setPilotingPCMDFlag(_deviceController->miniDrone, 1);
-    _deviceController->miniDrone->setPilotingPCMDPitch(_deviceController->miniDrone, 50);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDFlag(bself.deviceController->miniDrone, 1);
+    bself.deviceController->miniDrone->setPilotingPCMDPitch(bself.deviceController->miniDrone, 50);
+    });
 }
 
 - (void)stopPitchForward
 {
-    _deviceController->miniDrone->setPilotingPCMDFlag(_deviceController->miniDrone, 0);
-    _deviceController->miniDrone->setPilotingPCMDPitch(_deviceController->miniDrone, 0);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDFlag(bself.deviceController->miniDrone, 0);
+    bself.deviceController->miniDrone->setPilotingPCMDPitch(bself.deviceController->miniDrone, 0);
+    });
 }
 
 - (void)startPitchBack
 {
-    _deviceController->miniDrone->setPilotingPCMDFlag(_deviceController->miniDrone, 1);
-    _deviceController->miniDrone->setPilotingPCMDPitch(_deviceController->miniDrone, -50);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDFlag(bself.deviceController->miniDrone, 1);
+    bself.deviceController->miniDrone->setPilotingPCMDPitch(bself.deviceController->miniDrone, -50);
+    });
 }
 
 - (void)stopPitchBack
 {
-    _deviceController->miniDrone->setPilotingPCMDFlag(_deviceController->miniDrone, 0);
-    _deviceController->miniDrone->setPilotingPCMDPitch(_deviceController->miniDrone, 0);
+    __block __unsafe_unretained typeof(self) bself = self;
+    dispatch_async(dispatch_get_main_queue(), ^ () {
+    bself.deviceController->miniDrone->setPilotingPCMDFlag(bself.deviceController->miniDrone, 0);
+    bself.deviceController->miniDrone->setPilotingPCMDPitch(bself.deviceController->miniDrone, 0);
+    });
 }
 
 

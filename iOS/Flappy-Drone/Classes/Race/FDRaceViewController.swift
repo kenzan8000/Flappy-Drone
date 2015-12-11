@@ -8,6 +8,7 @@ class FDRaceViewController: UIViewController {
 
     var socket: SIOSocket!
     var mashCount = 0
+    var lastX = 0.0
 
     @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
@@ -22,6 +23,13 @@ class FDRaceViewController: UIViewController {
     @IBOutlet weak var downButton: UIButton!
 
 
+    /// MARK: - destruction
+
+    deinit {
+        self.socket.close()
+    }
+
+
     /// MARK: - life cycle
 
     override func loadView() {
@@ -34,7 +42,7 @@ class FDRaceViewController: UIViewController {
 
         self.countDownLabel.completionHandler = { [unowned self] in
             self.mashButton.hidden = false
-            self.moveDrone()
+            self.moveDrone(players: nil)
         }
 
     }
@@ -67,7 +75,7 @@ class FDRaceViewController: UIViewController {
             self.setDebugText("start\n\(players)")
         })
         self.socket.on("move", callback: { [unowned self] (players: [AnyObject]!) -> Void in
-            self.moveDrone()
+            self.moveDrone(players: players)
             self.setDebugText("move\n\(players)")
         })
     }
@@ -127,22 +135,54 @@ class FDRaceViewController: UIViewController {
 
     /**
      * move drone
+     * @param players JSON
      **/
-    private func moveDrone() {
-        let interval = Int64(self.mashCount)
-        FDDrone.sharedInstance().startGazUp()
-        dispatch_after(
-            dispatch_time(DISPATCH_TIME_NOW, Int64(0.01 * Double(NSEC_PER_SEC)) * interval),
-            dispatch_get_main_queue(),
-            { () -> Void in
-                FDDrone.sharedInstance().stopGazUp()
+    private func moveDrone(players players: [AnyObject]?) {
+        if players != nil {
+
+            var x = -0.1
+            for player in players![0] as! [AnyObject] {
+                if (player["sessionID"] as! String) == self.socket.sessionID() {
+                    x = (player["currentLocation"]!!["x"] as! NSNumber).doubleValue
+                    break
+                }
             }
-        )
+
+            let interval = (x - self.lastX) * 5.0
+            if interval > 0 {
+                self.lastX = x
+
+                FDDrone.sharedInstance().startGazUp()
+                dispatch_after(
+                    dispatch_time(DISPATCH_TIME_NOW, Int64(0.7 * Double(NSEC_PER_SEC))),
+                    dispatch_get_main_queue(),
+                    { () -> Void in
+                        FDDrone.sharedInstance().startGazDown()
+                        dispatch_after(
+                            dispatch_time(DISPATCH_TIME_NOW, Int64(0.8 * Double(NSEC_PER_SEC))),
+                            dispatch_get_main_queue(),
+                            { () -> Void in
+                                FDDrone.sharedInstance().stopGazDown()
+                            }
+                        )
+                    }
+                )
+
+                FDDrone.sharedInstance().startPitchForward()
+                dispatch_after(
+                    dispatch_time(DISPATCH_TIME_NOW, Int64(interval * Double(NSEC_PER_SEC))),
+                    dispatch_get_main_queue(),
+                    { () -> Void in
+                        FDDrone.sharedInstance().stopPitchForward()
+                    }
+                )
+            }
+        }
 
         self.mashCount = 0
 
         dispatch_after(
-            dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC))),
+            dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC))),
             dispatch_get_main_queue(),
             { [unowned self] in
                 self.socket.emit("event", args: [["move" : "\(self.mashCount)"]])

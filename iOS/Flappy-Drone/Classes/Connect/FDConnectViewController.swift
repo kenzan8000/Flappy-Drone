@@ -91,9 +91,8 @@ class FDConnectViewController: UIViewController {
      * connect web socket and drone
      **/
     private func connect() {
-        if self.drones.count == 0 { return }
-
         // drone
+        if self.drones.count == 0 { return }
         let succeeded = FDDrone.sharedInstance().connectWithService(self.drones[0])
         if !succeeded { return }
 
@@ -121,9 +120,11 @@ class FDConnectViewController: UIViewController {
                 successHandler(socket: socket)
             }
             socket.onError = { (errorInfo: [NSObject : AnyObject]!) -> Void in
+                socket.close()
                 failureHandler()
             }
             socket.onDisconnect = { () -> Void in
+                socket.close()
                 failureHandler()
             }
         })
