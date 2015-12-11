@@ -154,15 +154,29 @@ class FDRaceViewController: UIViewController {
 
                 FDDrone.sharedInstance().startGazUp()
                 dispatch_after(
-                    dispatch_time(DISPATCH_TIME_NOW, Int64(0.7 * Double(NSEC_PER_SEC))),
+                    dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC))),
                     dispatch_get_main_queue(),
                     { () -> Void in
                         FDDrone.sharedInstance().startGazDown()
                         dispatch_after(
-                            dispatch_time(DISPATCH_TIME_NOW, Int64(0.8 * Double(NSEC_PER_SEC))),
+                            dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC))),
                             dispatch_get_main_queue(),
                             { () -> Void in
-                                FDDrone.sharedInstance().stopGazDown()
+                                FDDrone.sharedInstance().startGazUp()
+                                dispatch_after(
+                                    dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC))),
+                                    dispatch_get_main_queue(),
+                                    { () -> Void in
+                                        FDDrone.sharedInstance().startGazDown()
+                                        dispatch_after(
+                                            dispatch_time(DISPATCH_TIME_NOW, Int64(0.4 * Double(NSEC_PER_SEC))),
+                                            dispatch_get_main_queue(),
+                                            { () -> Void in
+                                                FDDrone.sharedInstance().stopGazDown()
+                                            }
+                                        )
+                                    }
+                                )
                             }
                         )
                     }
